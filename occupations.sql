@@ -9,20 +9,20 @@
 -- There are a total of [occupation_count] [occupation]s.
 
 SELECT 
-CASE 
-    when occupation = 'Doctor' then concat(name,"(D)")
-    when occupation = 'Actor' then concat(name,"(A)")
-    when occupation = 'Singer' then concat(name,"(S)")
-    when occupation = 'Professor' then concat(name,"(P)")
-END
+    CASE 
+        when occupation = 'Doctor' then concat(name,"(D)")
+        when occupation = 'Actor' then concat(name,"(A)")
+        when occupation = 'Singer' then concat(name,"(S)")
+        when occupation = 'Professor' then concat(name,"(P)")
+    END
 FROM occupations ORDER BY name;
 
 SELECT 
-CASE 
-    when occupation = 'Doctor' then concat("There are a total of ", count(occupation), " doctors.")
-    when occupation = 'Actor' then concat("There are a total of ", count(occupation), " actors.")
-    when occupation = 'Singer' then concat("There are a total of ", count(occupation), " singers.")
-    when occupation = 'Professor' then concat("There are a total of ", count(occupation), " professors.")   
-END
+    CASE 
+        when occupation = 'Doctor' then concat("There are a total of ", count(occupation), " doctors.")
+        when occupation = 'Actor' then concat("There are a total of ", count(occupation), " actors.")
+        when occupation = 'Singer' then concat("There are a total of ", count(occupation), " singers.")
+        when occupation = 'Professor' then concat("There are a total of ", count(occupation), " professors.")   
+    END
 FROM occupations GROUP BY occupation
 ORDER BY count(occupation),occupation;
