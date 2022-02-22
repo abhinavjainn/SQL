@@ -8,21 +8,21 @@
 -- Sort the occurrences in ascending order, and output them in the following format:
 -- There are a total of [occupation_count] [occupation]s.
 
-select 
-case 
+SELECT 
+CASE 
     when occupation = 'Doctor' then concat(name,"(D)")
     when occupation = 'Actor' then concat(name,"(A)")
     when occupation = 'Singer' then concat(name,"(S)")
     when occupation = 'Professor' then concat(name,"(P)")
-end
-from occupations order by name;
+END
+FROM occupations ORDER BY name;
 
-select 
-case
+SELECT 
+CASE 
     when occupation = 'Doctor' then concat("There are a total of ", count(occupation), " doctors.")
     when occupation = 'Actor' then concat("There are a total of ", count(occupation), " actors.")
     when occupation = 'Singer' then concat("There are a total of ", count(occupation), " singers.")
     when occupation = 'Professor' then concat("There are a total of ", count(occupation), " professors.")   
-end
-from occupations group by occupation
-order by count(occupation),occupation;
+END
+FROM occupations GROUP BY occupation
+ORDER BY count(occupation),occupation;
